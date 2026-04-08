@@ -1,0 +1,6 @@
+\babel@toc {french}{}\relax 
+\contentsline {table}{\numberline {1}{\ignorespaces Temps d'exécution du modèle Master/Worker ($p = 5$ processus)\relax }}{6}{table.caption.5}%
+\contentsline {table}{\numberline {2}{\ignorespaces Comparaison des temps d'exécution pour $F(40)$\relax }}{10}{table.caption.11}%
+\contentsline {table}{\numberline {3}{\ignorespaces Efficacité des différentes versions parallèles\relax }}{10}{table.caption.12}%
+\contentsline {table}{\numberline {4}{\ignorespaces Temps d'exécution en fonction du nombre de threads (tableau de $10^7$ éléments)\relax }}{12}{table.caption.18}%
+\contentsline {table}{\numberline {5}{\ignorespaces Comparaison des méthodes de synchronisation (tableau de $10^7$ éléments, 4 threads)\relax }}{14}{table.caption.19}%

@@ -38,7 +38,7 @@
 \tolerance=2000
 
 % Redefine header for this TP
-\fancyhead[C]{\textsc{TP Programmation Parall\`ele -- MPI \& OpenMP}}
+\fancyhead[C]{\textsc{TP Programmation Parallèle -- MPI \& OpenMP}}
 
 \newcommand{\mysection}[1]{%
     \refstepcounter{section}%
@@ -59,7 +59,7 @@
     \hfill
     \begin{minipage}[c]{0.50\textwidth}
         \centering
-        {Universit\'e d'Abomey-Calavi}\\
+        {Université d'Abomey-Calavi}\\
         .........................\\
         \begin{minipage}[c][1.5cm][c]{\linewidth}
             \begin{flushleft}
@@ -68,7 +68,7 @@
             \end{flushleft}
         \end{minipage}\\
         .........................\\
-        {\textbf{\textcolor{basecolor}{Institut de Math\'ematiques et de Sciences Physiques}}}\\
+        {\textbf{\textcolor{basecolor}{Institut de Mathématiques et de Sciences Physiques}}}\\
         .........................\\
         {\small 01 B.P. 613, Porto-Novo, Benin}\\
         \makebox[0.40\textwidth][c]{{\small \href{https://www.imsp-benin.com}{\textcolor{teal}{www.imsp-benin.com}} E-mail: \href{mailto:secretariat@imsp-uac.org}{\textcolor{teal}{secretariat@imsp-uac.org}}}}
@@ -87,27 +87,28 @@
     \vfill
 
     {\LARGE \textbf{\textcolor{basecolor}{RAPPORT DE TRAVAUX PRATIQUES}}}\\[1em]
-    {\Large \textbf{Programmation Parall\`ele : MPI \& OpenMP}}\\[2.5em]
+    {\Large \textbf{Programmation Parallèle : MPI \& OpenMP}}\\[2.5em]
 
     \begin{tabular}{ll}
-        \textbf{\textcolor{basecolor}{Partie A :}} & MPI -- Mod\`ele Master/Worker \\[0.3em]
+        \textbf{\textcolor{basecolor}{Partie A :}} & MPI -- Modèle Master/Worker \\[0.3em]
         \textbf{\textcolor{basecolor}{Partie B :}} & Fibonacci -- MPI + OpenMP (Hybride) \\[0.3em]
-        \textbf{\textcolor{basecolor}{Partie C :}} & Parall\'elisme de boucle avec OpenMP \\
+        \textbf{\textcolor{basecolor}{Partie C :}} & Parallélisme de boucle avec OpenMP \\
     \end{tabular}
 
     \vfill
 
-    { \textbf{\textcolor{basecolor}{\'Etudiant :}}}\\[0.5em]
-    { B\'eryl Hougbenou HOUESSOU}
+    { \textbf{\textcolor{basecolor}{Étudiant :}}}\\[0.5em]
+    { Béryl Hougbenou HOUESSOU }\\[0.3em]
+    { Sara Odile ADJAHO }
 
     \vfill
 
-    { \textbf{\textcolor{basecolor}{Encadrant :}}}\\[0.5em]
-    { IMSP -- D\'epartement Informatique}
+    { \textbf{\textcolor{basecolor}{Enseignant :}}}\\[0.5em]
+    { M. Jonas Y. DJIVOEDO}
 
     \vfill
 
-    {\textcolor{autumnember}{Ann\'ee Acad\'emique : 2025 -- 2026}}
+    {\textcolor{autumnember}{Année Académique : 2025 -- 2026}}
 
 \end{titlepage}
 
@@ -123,62 +124,62 @@
 \mysection{Introduction}
 % ============================================================
 
-Ce rapport pr\'esente les travaux r\'ealis\'es dans le cadre du TP de Programmation Parall\`ele du Master 2 TIC de l'IMSP.
-L'objectif est de se familiariser avec deux paradigmes de parall\'elisme largement utilis\'es en calcul haute performance (HPC) :
+Ce rapport présente les travaux réalisés dans le cadre du TP de Programmation Parallèle du Master 2 TIC de l'IMSP.
+L'objectif est de se familiariser avec deux paradigmes de parallélisme largement utilisés en calcul haute performance (HPC) :
 
 \begin{itemize}
-    \item \textbf{MPI} (Message Passing Interface) : mod\`ele par \'echange de messages entre processus distribu\'es.
-    \item \textbf{OpenMP} : mod\`ele \`a m\'emoire partag\'ee bas\'e sur les directives de compilation.
+    \item \textbf{MPI} (Message Passing Interface) : modèle par échange de messages entre processus distribués.
+    \item \textbf{OpenMP} : modèle \`a mémoire partagée basé sur les directives de compilation.
 \end{itemize}
 
-Le TP est organis\'e en trois parties :
+Le TP est organisé en trois parties :
 \begin{enumerate}
-    \item \textbf{Partie A} -- impl\'ementation du mod\`ele Master/Worker avec MPI pour parall\'eliser la somme d'un tableau.
-    \item \textbf{Partie B} -- calcul de Fibonacci en versions s\'equentielle, OpenMP, MPI et hybride (MPI+OpenMP), avec \'etude du speedup et de l'efficacit\'e.
-    \item \textbf{Partie C} -- parall\'elisme de boucle avec OpenMP : mise au carr\'e d'un tableau, gestion des threads, sections critiques, op\'erations atomiques et r\'eductions.
+    \item \textbf{Partie A} -- implémentation du modèle Master/Worker avec MPI pour paralléliser la somme d'un tableau.
+    \item \textbf{Partie B} -- calcul de Fibonacci en versions séquentielle, OpenMP, MPI et hybride (MPI+OpenMP), avec étude du speedup et de l'efficacité.
+    \item \textbf{Partie C} -- parallélisme de boucle avec OpenMP : mise au carré d'un tableau, gestion des threads, sections critiques, opérations atomiques et réductions.
 \end{enumerate}
 
-L'environnement de test est un cluster Linux avec plusieurs n\oe{}uds de calcul interconnect\'es.
-Les compilateurs utilis\'es sont \texttt{mpicc} pour MPI (bas\'e sur GCC) et \texttt{gcc -fopenmp} pour OpenMP.
+L'environnement de test est un cluster Linux avec plusieurs n\oe{}uds de calcul interconnectés.
+Les compilateurs utilisés sont \texttt{mpicc} pour MPI (basé sur GCC) et \texttt{gcc -fopenmp} pour OpenMP.
 
 \newpage
 
 % ============================================================
-\mysection{Partie A : MPI -- Mod\`ele Master/Worker}
+\mysection{Partie A : MPI -- Modèle Master/Worker}
 % ============================================================
 
-\subsection{Description du probl\`eme}
+\subsection{Description du problème}
 
-L'objectif est de parall\'eliser le calcul de la somme d'un tableau de $N$ entiers en utilisant le mod\`ele
+L'objectif est de paralléliser le calcul de la somme d'un tableau de $N$ entiers en utilisant le modèle
 Master/Worker avec MPI. On dispose de :
 \begin{itemize}
-    \item Un processus \textbf{master} (rang 0) qui initialise le tableau, distribue les donn\'ees aux workers
-          et collecte les r\'esultats partiels.
+    \item Un processus \textbf{master} (rang 0) qui initialise le tableau, distribue les données aux workers
+          et collecte les résultats partiels.
     \item Plusieurs processus \textbf{workers} (rangs $1, 2, \ldots, p-1$) qui re\c{c}oivent chacun un sous-tableau,
           calculent une somme partielle et la renvoient au master.
 \end{itemize}
 
 Le master calcule ensuite la somme globale en additionnant toutes les sommes partielles re\c{c}ues.
 
-\subsection{Impl\'ementation}
+\subsection{Implémentation}
 
 \subsubsection{Architecture du programme}
 
-Le programme suit le sch\'ema suivant :
+Le programme suit le schéma suivant :
 
 \begin{enumerate}
     \item Le master lit $N$ (taille du tableau) depuis la ligne de commande et le diffuse \`a tous les processus
           via \texttt{MPI\_Bcast}.
     \item Le master initialise le tableau $data[i] = i + 1$, puis envoie \`a chaque worker (rang $i$) le
           sous-tableau \texttt{data[(i-1)*chunk .. i*chunk-1]} via \texttt{MPI\_Send}.
-    \item Chaque worker calcule la somme de son sous-tableau et renvoie le r\'esultat au master via \texttt{MPI\_Send}.
-    \item Le master accumule toutes les sommes partielles et affiche le r\'esultat final ainsi que le temps
-          d'ex\'ecution mesur\'e via \texttt{MPI\_Wtime}.
+    \item Chaque worker calcule la somme de son sous-tableau et renvoie le résultat au master via \texttt{MPI\_Send}.
+    \item Le master accumule toutes les sommes partielles et affiche le résultat final ainsi que le temps
+          d'exécution mesuré via \texttt{MPI\_Wtime}.
 \end{enumerate}
 
 \subsubsection{Code source}
 
-\begin{lstlisting}[caption={partiA\_MPI.c -- Mod\`ele Master/Worker MPI}, label={lst:partieA}]
+\begin{lstlisting}[caption={partiA\_MPI.c -- Modèle Master/Worker MPI}, label={lst:partieA}]
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -233,9 +234,9 @@ int main(int argc, char* argv[]) {
 }
 \end{lstlisting}
 
-\subsection{Tests et r\'esultats}
+\subsection{Tests et résultats}
 
-Le programme est compil\'e et ex\'ecut\'e avec :
+Le programme est compilé et exécuté avec :
 \begin{verbatim}
 mpicc -O2 -o partiA_MPI partiA_MPI.c
 mpirun -np 5 ./partiA_MPI <N>
@@ -248,11 +249,11 @@ Pour $N = 100$, la somme exacte est $\frac{100 \times 101}{2} = 5050$.
 
 \begin{table}[h!]
     \centering
-    \caption{Temps d'ex\'ecution du mod\`ele Master/Worker ($p = 5$ processus)}
+    \caption{Temps d'exécution du modèle Master/Worker ($p = 5$ processus)}
     \label{tab:partieA_perf}
     \begin{tabular}{rrrr}
         \toprule
-        \textbf{Taille $N$} & \textbf{Temps s\'eq. (s)} & \textbf{Temps MPI (s)} & \textbf{Speedup} \\
+        \textbf{Taille $N$} & \textbf{Temps séq. (s)} & \textbf{Temps MPI (s)} & \textbf{Speedup} \\
         \midrule
         100          & 0.000012 & 0.000041 & 0.29 \\
         10\,000      & 0.000105 & 0.000130 & 0.81 \\
@@ -264,19 +265,19 @@ Pour $N = 100$, la somme exacte est $\frac{100 \times 101}{2} = 5050$.
 
 \subsection{Analyse et discussion}
 
-\paragraph{V\'erification du r\'esultat.}
-Pour $N = 100$, on obtient bien la somme $5050$, ce qui valide l'impl\'ementation.
+\paragraph{Vérification du résultat.}
+Pour $N = 100$, on obtient bien la somme $5050$, ce qui valide l'implémentation.
 
-\paragraph{\'Evolution du speedup avec la taille.}
+\paragraph{évolution du speedup avec la taille.}
 Pour les petits tableaux ($N = 100$), le surcout de communication MPI (\textit{overhead}) est dominant
-par rapport au calcul utile, ce qui donne un speedup inf\'erieur \`a 1. \`A mesure que $N$ augmente, le
-ratio calcul/communication s'am\'eliore et le speedup se rapproche du nombre de workers (4 dans notre cas).
-On observe un speedup d'environ 3{,}33 pour $N = 10^7$, soit une efficacit\'e de $\frac{3{,}33}{4} \approx 83\%$.
+par rapport au calcul utile, ce qui donne un speedup inférieur \`a 1. \`A mesure que $N$ augmente, le
+ratio calcul/communication s'améliore et le speedup se rapproche du nombre de workers (4 dans notre cas).
+On observe un speedup d'environ 3{,}33 pour $N = 10^7$, soit une efficacité de $\frac{3{,}33}{4} \approx 83\%$.
 
 \paragraph{Rapport calcul/communication.}
-Ce TP illustre la loi d'Amdahl : les gains de parall\'elisation sont limit\'es par les parties s\'equentielles
-(initialisation, distribution, collecte). Pour de tr\`es grands tableaux, la partie de calcul devient dominante
-et le parall\'elisme est plus efficace.
+Ce TP illustre la loi d'Amdahl : les gains de parallélisation sont limités par les parties séquentielles
+(initialisation, distribution, collecte). Pour de très grands tableaux, la partie de calcul devient dominante
+et le parallélisme est plus efficace.
 
 \newpage
 
@@ -284,23 +285,23 @@ et le parall\'elisme est plus efficace.
 \mysection{Partie B : Fibonacci -- MPI + OpenMP}
 % ============================================================
 
-\subsection{Pr\'esentation}
+\subsection{Présentation}
 
-Cette partie \'etudie le parall\'elisme hybride en calculant les termes de la suite de Fibonacci.
-On impl\'emente successivement :
+Cette partie étudie le parallélisme hybride en calculant les termes de la suite de Fibonacci.
+On implémente successivement :
 \begin{enumerate}
-    \item Une version \textbf{s\'equentielle} r\'ecursive.
-    \item Une version \textbf{OpenMP} exploitant les t\^aches parall\`eles.
+    \item Une version \textbf{séquentielle} récursive.
+    \item Une version \textbf{OpenMP} exploitant les t\^aches parallèles.
     \item Une version \textbf{MPI} distribuant le calcul entre processus.
     \item Une version \textbf{hybride MPI + OpenMP}.
 \end{enumerate}
 
-La suite de Fibonacci est d\'efinie par :
+La suite de Fibonacci est définie par :
 $$ F(0) = 0, \quad F(1) = 1, \quad F(n) = F(n-1) + F(n-2) \quad \forall\, n \geq 2 $$
 
-\subsection{Version s\'equentielle}
+\subsection{Version séquentielle}
 
-\begin{lstlisting}[caption={partieB\_Fibonacci\_seq.c -- Version s\'equentielle}, label={lst:fib_seq}]
+\begin{lstlisting}[caption={partieB\_Fibonacci\_seq.c -- Version séquentielle}, label={lst:fib_seq}]
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -322,14 +323,14 @@ int main(int argc, char* argv[]) {
 }
 \end{lstlisting}
 
-La complexit\'e de cet algorithme est $O(\phi^n)$ o\`u $\phi \approx 1{,}618$ est le nombre d'or,
-ce qui le rend tr\`es couteux pour les grandes valeurs de $n$.
+La complexité de cet algorithme est $O(\phi^n)$ o\`u $\phi \approx 1{,}618$ est le nombre d'or,
+ce qui le rend très couteux pour les grandes valeurs de $n$.
 
 \subsection{Version OpenMP}
 
-La version OpenMP exploite les directives \texttt{\#pragma omp task} pour cr\'eer des t\^aches parall\`eles
-sur les deux appels r\'ecursifs. Un seuil (\textit{cutoff}) est appliqu\'e pour ne pas cr\'eer de t\^aches
-pour les petites valeurs (co\^ut de cr\'eation de t\^ache sup\'erieur au gain).
+La version OpenMP exploite les directives \texttt{\#pragma omp task} pour créer des t\^aches parallèles
+sur les deux appels récursifs. Un seuil (\textit{cutoff}) est appliqué pour ne pas créer de t\^aches
+pour les petites valeurs (co\^ut de création de t\^ache supérieur au gain).
 
 \begin{lstlisting}[caption={partieB\_Fibonacci\_openmp.c -- Version OpenMP}, label={lst:fib_omp}]
 #include <stdio.h>
@@ -365,14 +366,14 @@ int main(int argc, char* argv[]) {
 }
 \end{lstlisting}
 
-\paragraph{Seuil de granularit\'e.}
-Le \textit{cutoff} \`a $n < 20$ est essentiel : en dessous de ce seuil, le co\^ut de cr\'eation et
-de synchronisation des t\^aches OpenMP d\'epasse le gain de parall\'elisation.
+\paragraph{Seuil de granularité.}
+Le \textit{cutoff} \`a $n < 20$ est essentiel : en dessous de ce seuil, le co\^ut de création et
+de synchronisation des t\^aches OpenMP dépasse le gain de parallélisation.
 
 \subsection{Version MPI}
 
-La version MPI distribue le calcul de mani\`ere approximative : chaque processus calcule
-$F(\lfloor n/p \rfloor)$ puis les r\'esultats sont somm\'es via \texttt{MPI\_Reduce}.
+La version MPI distribue le calcul de manière approximative : chaque processus calcule
+$F(\lfloor n/p \rfloor)$ puis les résultats sont sommés via \texttt{MPI\_Reduce}.
 
 \begin{lstlisting}[caption={partieB\_Fibonacci\_mpi.c -- Version MPI}, label={lst:fib_mpi}]
 #include <stdio.h>
@@ -406,7 +407,7 @@ int main(int argc, char* argv[]) {
 \subsection{Version hybride MPI + OpenMP}
 
 La version hybride combine les deux paradigmes : MPI distribue le travail entre noeuds de calcul,
-et OpenMP parall\'elise le calcul au sein de chaque noeud avec des t\^aches.
+et OpenMP parallélise le calcul au sein de chaque noeud avec des t\^aches.
 
 \begin{lstlisting}[caption={partieB\_Fibonacci\_hybrid.c -- Version hybride MPI + OpenMP}, label={lst:fib_hybrid}]
 #include <stdio.h>
@@ -445,22 +446,22 @@ int main(int argc, char* argv[]) {
 }
 \end{lstlisting}
 
-\subsection{\'Etude des performances}
+\subsection{étude des performances}
 
-\subsubsection{Speedup et efficacit\'e}
+\subsubsection{Speedup et efficacité}
 
-Le speedup est d\'efini par $S(p) = \frac{T_{\text{seq}}}{T_p}$ et l'efficacit\'e par
+Le speedup est défini par $S(p) = \frac{T_{\text{seq}}}{T_p}$ et l'efficacité par
 $E(p) = \frac{S(p)}{p}$, o\`u $p$ est le nombre de processus/threads.
 
 \begin{table}[h!]
     \centering
-    \caption{Comparaison des temps d'ex\'ecution pour $F(40)$}
+    \caption{Comparaison des temps d'exécution pour $F(40)$}
     \label{tab:fib_perf}
     \begin{tabular}{lrrrr}
         \toprule
         \textbf{Version} & \textbf{Processus} & \textbf{Threads} & \textbf{Temps (s)} & \textbf{Speedup} \\
         \midrule
-        S\'equentielle    & 1 & 1 & 1.024 & 1.00 \\
+        Séquentielle    & 1 & 1 & 1.024 & 1.00 \\
         OpenMP            & 1 & 4 & 0.318 & 3.22 \\
         MPI               & 4 & 1 & 0.290 & 3.53 \\
         Hybride MPI+OpenMP & 2 & 2 & 0.195 & 5.25 \\
@@ -470,53 +471,53 @@ $E(p) = \frac{S(p)}{p}$, o\`u $p$ est le nombre de processus/threads.
 
 \begin{table}[h!]
     \centering
-    \caption{Efficacit\'e des diff\'erentes versions parall\`eles}
+    \caption{Efficacité des différentes versions parallèles}
     \label{tab:fib_eff}
     \begin{tabular}{lrr}
         \toprule
-        \textbf{Version} & \textbf{Ressources totales} & \textbf{Efficacit\'e (\%)} \\
+        \textbf{Version} & \textbf{Ressources totales} & \textbf{Efficacité (\%)} \\
         \midrule
         OpenMP (4 threads)    & 4 & 80.5 \\
         MPI (4 processus)     & 4 & 88.3 \\
         Hybride (2$\times$2)  & 4 & $>$100$^{*}$ \\
         \bottomrule
-        \multicolumn{3}{l}{\small $^{*}$ Meilleure utilisation du cache en version hybride (localit\'e m\'emoire).}
+        \multicolumn{3}{l}{\small $^{*}$ Meilleure utilisation du cache en version hybride (localité mémoire).}
     \end{tabular}
 \end{table}
 
 \subsection{Discussion}
 
-\paragraph{Version s\'equentielle.}
-Simple \`a impl\'ementer mais de complexit\'e exponentielle. Elle constitue la r\'ef\'erence (\textit{baseline})
+\paragraph{Version séquentielle.}
+Simple \`a implémenter mais de complexité exponentielle. Elle constitue la référence (\textit{baseline})
 pour le calcul du speedup.
 
 \paragraph{Version OpenMP.}
-Le parall\'elisme de t\^aches est adapt\'e \`a la r\'ecursion de Fibonacci. Le seuil de granularit\'e est crucial
-pour \'eviter un overhead de cr\'eation de t\^aches trop \'elev\'e.
+Le parallélisme de t\^aches est adapté \`a la récursion de Fibonacci. Le seuil de granularité est crucial
+pour éviter un overhead de création de t\^aches trop élevé.
 
 \paragraph{Version MPI.}
-La distribution approximative illustre la r\'eduction MPI (\texttt{MPI\_Reduce}). Le r\'esultat obtenu n'est
+La distribution approximative illustre la réduction MPI (\texttt{MPI\_Reduce}). Le résultat obtenu n'est
 pas exactement $F(n)$ mais suffit pour mesurer les performances du paradigme MPI.
 
 \paragraph{Version hybride.}
 La combinaison MPI+OpenMP offre les meilleures performances car elle exploite \`a la fois le niveau inter-noeuds
-(MPI) et intra-noeud (OpenMP \`a m\'emoire partag\'ee). Cette approche r\'eduit aussi les communications MPI,
-ce qui diminue l'overhead r\'eseau.
+(MPI) et intra-noeud (OpenMP \`a mémoire partagée). Cette approche réduit aussi les communications MPI,
+ce qui diminue l'overhead réseau.
 
 \newpage
 
 % ============================================================
-\mysection{Partie C : Parall\'elisme de boucle avec OpenMP}
+\mysection{Partie C : Parallélisme de boucle avec OpenMP}
 % ============================================================
 
-\subsection{Exercice 1 -- Parall\'elisation de la mise au carr\'e d'un tableau}
+\subsection{Exercice 1 -- Parallélisation de la mise au carré d'un tableau}
 
-\subsubsection{(a) G\'en\'eration du tableau al\'eatoire}
+\subsubsection{(a) Génération du tableau aléatoire}
 
 Le programme \texttt{partiC\_a.c} lit la taille $n$ du tableau sur la ligne de commande, alloue le tableau
-dynamiquement et le remplit de valeurs enti\`eres al\'eatoires entre 0 et 99 via \texttt{rand()}.
+dynamiquement et le remplit de valeurs entières aléatoires entre 0 et 99 via \texttt{rand()}.
 
-\begin{lstlisting}[caption={partiC\_a.c -- G\'en\'eration du tableau al\'eatoire}, label={lst:C_a}]
+\begin{lstlisting}[caption={partiC\_a.c -- Génération du tableau aléatoire}, label={lst:C_a}]
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -535,25 +536,25 @@ int main(int argc, char *argv[]) {
 }
 \end{lstlisting}
 
-\subsubsection{(b) M\'ethode \texttt{carre()}}
+\subsubsection{(b) Méthode \texttt{carre()}}
 
-La fonction \texttt{carre()} parcourt le tableau et \'el\`eve chaque \'el\'ement au carr\'e en place :
+La fonction \texttt{carre()} parcourt le tableau et élève chaque élément au carré en place :
 
-\begin{lstlisting}[caption={partiC\_b.c -- Fonction carre() s\'equentielle}, label={lst:C_b}]
+\begin{lstlisting}[caption={partiC\_b.c -- Fonction carre() séquentielle}, label={lst:C_b}]
 void carre(int *tableau, int n) {
     for (int i = 0; i < n; i++)
         tableau[i] = tableau[i] * tableau[i];
 }
 \end{lstlisting}
 
-C'est une boucle parfaitement parall\'elisable (\textit{embarrassingly parallel}) car il n'y a aucune
-d\'ependance entre les it\'erations.
+C'est une boucle parfaitement parallélisable (\textit{embarrassingly parallel}) car il n'y a aucune
+dépendance entre les itérations.
 
-\subsubsection{(c) Parall\'elisation avec OpenMP}
+\subsubsection{(c) Parallélisation avec OpenMP}
 
 On ajoute la directive \texttt{\#pragma omp parallel for} au-dessus de la boucle :
 
-\begin{lstlisting}[caption={partiC\_c.c -- Fonction carre() parall\'elis\'ee avec OpenMP}, label={lst:C_c}]
+\begin{lstlisting}[caption={partiC\_c.c -- Fonction carre() parallélisée avec OpenMP}, label={lst:C_c}]
 #include <omp.h>
 
 void carre(int *tableau, int n) {
@@ -563,10 +564,10 @@ void carre(int *tableau, int n) {
 }
 \end{lstlisting}
 
-Cette directive demande \`a OpenMP de cr\'eer une \'equipe de threads et de r\'epartir les it\'erations
-de la boucle entre eux. OpenMP g\`ere automatiquement la distribution des it\'erations.
+Cette directive demande \`a OpenMP de créer une équipe de threads et de répartir les itérations
+de la boucle entre eux. OpenMP gère automatiquement la distribution des itérations.
 
-\subsubsection{(d) Nombre de threads cr\'e\'es}
+\subsubsection{(d) Nombre de threads créés}
 
 \begin{lstlisting}[caption={Affichage du nombre de threads actifs}, label={lst:C_d}]
 printf("Nombre de threads disponibles : %d\n", omp_get_max_threads());
@@ -577,33 +578,33 @@ printf("Nombre de threads disponibles : %d\n", omp_get_max_threads());
 }
 \end{lstlisting}
 
-\textbf{Observation :} Sur une machine \`a 4 coeurs, OpenMP cr\'ee par d\'efaut 4 threads.
+\textbf{Observation :} Sur une machine \`a 4 coeurs, OpenMP crée par défaut 4 threads.
 \texttt{omp\_get\_max\_threads()} renvoie le nombre maximal de threads disponibles dans l'environnement
-(d\'efini par \texttt{OMP\_NUM\_THREADS} ou le nombre de coeurs physiques).
+(défini par \texttt{OMP\_NUM\_THREADS} ou le nombre de coeurs physiques).
 
 \subsubsection{(e) Fixer le nombre de threads}
 
-On utilise \texttt{omp\_set\_num\_threads(t)} avant la r\'egion parall\`ele pour fixer le nombre de
+On utilise \texttt{omp\_set\_num\_threads(t)} avant la région parallèle pour fixer le nombre de
 threads \`a 1, 5 puis 10 :
 
 \begin{table}[h!]
     \centering
-    \caption{Temps d'ex\'ecution en fonction du nombre de threads (tableau de $10^7$ \'el\'ements)}
+    \caption{Temps d'exécution en fonction du nombre de threads (tableau de $10^7$ éléments)}
     \label{tab:C_threads}
     \begin{tabular}{rrl}
         \toprule
         \textbf{Nb. threads} & \textbf{Temps (s)} & \textbf{Remarque} \\
         \midrule
-        1  & 0.0421 & \'Equivalent \`a la version s\'equentielle \\
+        1  & 0.0421 & équivalent \`a la version séquentielle \\
         5  & 0.0098 & Speedup $\approx 4{,}3\times$ \\
         10 & 0.0073 & Speedup $\approx 5{,}8\times$ (saturation) \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-\textbf{Constat :} Avec 1 thread, le temps est similaire \`a la version s\'equentielle. Avec 5 threads, on
+\textbf{Constat :} Avec 1 thread, le temps est similaire \`a la version séquentielle. Avec 5 threads, on
 observe un bon speedup. Avec 10 threads sur une machine \`a 4 coeurs physiques, l'hyperthreading permet un
-gain suppl\'ementaire mais limit\'e par la contention m\'emoire.
+gain supplémentaire mais limité par la contention mémoire.
 
 \subsubsection{(f) Variable \texttt{OMP\_NUM\_THREADS}}
 
@@ -615,19 +616,19 @@ export OMP_NUM_THREADS=4
 ./partiC_f 1000000
 \end{verbatim}
 
-Elle a priorit\'e sur \texttt{omp\_set\_num\_threads()} sauf si celui-ci est appel\'e apr\`es son \'ecriture.
-Ceci est tr\`es utile pour les scripts de benchmarking et les environnements HPC.
+Elle a priorité sur \texttt{omp\_set\_num\_threads()} sauf si celui-ci est appelé après son écriture.
+Ceci est très utile pour les scripts de benchmarking et les environnements HPC.
 
-Le programme \texttt{partiC\_f.c} v\'erifie si \texttt{OMP\_NUM\_THREADS} est d\'efini via
-\texttt{getenv("OMP\_NUM\_THREADS")} et informe l'utilisateur de l'origine du param\'etrage des threads.
+Le programme \texttt{partiC\_f.c} vérifie si \texttt{OMP\_NUM\_THREADS} est défini via
+\texttt{getenv("OMP\_NUM\_THREADS")} et informe l'utilisateur de l'origine du paramétrage des threads.
 
 \newpage
 
-\subsection{Exercice 6 -- Somme des \'el\'ements dans la boucle \texttt{carre()}}
+\subsection{Exercice 6 -- Somme des éléments dans la boucle \texttt{carre()}}
 
-\subsubsection{(a) Variable \texttt{total} partag\'ee -- donn\'ees de course}
+\subsubsection{(a) Variable \texttt{total} partagée -- données de course}
 
-\begin{lstlisting}[caption={partiC\_6a.c -- Variable total partag\'ee (race condition)}, label={lst:C6a}]
+\begin{lstlisting}[caption={partiC\_6a.c -- Variable total partagée (race condition)}, label={lst:C6a}]
 void carre(int *tableau, int n) {
     int total = 0;
     #pragma omp parallel for
@@ -639,14 +640,14 @@ void carre(int *tableau, int n) {
 }
 \end{lstlisting}
 
-\textbf{R\'esultat et explication :} La valeur de \texttt{total} en sortie de boucle est
-\textbf{ind\'eterministe et incorrecte}. Plusieurs threads lisent et \'ecrivent simultan\'ement la variable
-\texttt{total} (variable partag\'ee par d\'efaut) sans synchronisation, ce qui cr\'ee une \textit{race condition}
-(condition de course). Le r\'esultat varie \`a chaque ex\'ecution.
+\textbf{Résultat et explication :} La valeur de \texttt{total} en sortie de boucle est
+\textbf{indéterministe et incorrecte}. Plusieurs threads lisent et écrivent simultanément la variable
+\texttt{total} (variable partagée par défaut) sans synchronisation, ce qui crée une \textit{race condition}
+(condition de course). Le résultat varie \`a chaque exécution.
 
-\subsubsection{(b) Variable \texttt{total} priv\'ee}
+\subsubsection{(b) Variable \texttt{total} privée}
 
-\begin{lstlisting}[caption={partiC\_6b.c -- Variable total priv\'ee}, label={lst:C6b}]
+\begin{lstlisting}[caption={partiC\_6b.c -- Variable total privée}, label={lst:C6b}]
 void carre(int *tableau, int n) {
     int total = 0;
     #pragma omp parallel for private(total)
@@ -658,10 +659,10 @@ void carre(int *tableau, int n) {
 }
 \end{lstlisting}
 
-\textbf{R\'esultat et explication :} Avec \texttt{private(total)}, chaque thread dispose de sa propre
-copie de \texttt{total}, initialis\'ee \`a une valeur \textbf{ind\'efinie} (non initialis\'ee). La variable
-\texttt{total} affich\'ee apr\`es la boucle ne refl\`ete que la derni\`ere valeur \'ecrite par le thread
-ma\^{\i}tre (souvent 0). Le r\'esultat est donc toujours incorrect pour calculer la somme globale.
+\textbf{Résultat et explication :} Avec \texttt{private(total)}, chaque thread dispose de sa propre
+copie de \texttt{total}, initialisée \`a une valeur \textbf{indéfinie} (non initialisée). La variable
+\texttt{total} affichée après la boucle ne reflète que la dernière valeur écrite par le thread
+ma\^{\i}tre (souvent 0). Le résultat est donc toujours incorrect pour calculer la somme globale.
 
 \subsubsection{(c) Section critique}
 
@@ -681,16 +682,16 @@ void carre(int *tableau, int n) {
 }
 \end{lstlisting}
 
-\textbf{R\'esultat :} La somme est correcte. La directive \texttt{\#pragma omp critical} garantit qu'un
-seul thread \`a la fois ex\'ecute le bloc d'addition.
+\textbf{Résultat :} La somme est correcte. La directive \texttt{\#pragma omp critical} garantit qu'un
+seul thread \`a la fois exécute le bloc d'addition.
 
-\textbf{Performance :} La section critique cr\'ee un \textit{bottleneck} : chaque thread doit attendre son
-tour pour mettre \`a jour \texttt{total}. Pour un tableau de $10^7$ \'el\'ements, le temps d'ex\'ecution
-est significativement plus long qu'une simple boucle parall\`ele sans accumulation.
+\textbf{Performance :} La section critique crée un \textit{bottleneck} : chaque thread doit attendre son
+tour pour mettre \`a jour \texttt{total}. Pour un tableau de $10^7$ éléments, le temps d'exécution
+est significativement plus long qu'une simple boucle parallèle sans accumulation.
 
-\subsubsection{(d) Op\'eration atomique}
+\subsubsection{(d) Opération atomique}
 
-\begin{lstlisting}[caption={partiC\_6d.c -- Op\'eration atomique}, label={lst:C6d}]
+\begin{lstlisting}[caption={partiC\_6d.c -- Opération atomique}, label={lst:C6d}]
 void carre(int *tableau, int n) {
     int total = 0;
     #pragma omp parallel for
@@ -704,31 +705,31 @@ void carre(int *tableau, int n) {
 }
 \end{lstlisting}
 
-\textbf{R\'esultat :} La somme est correcte. L'op\'eration atomique est impl\'ement\'ee directement en
+\textbf{Résultat :} La somme est correcte. L'opération atomique est implémentée directement en
 hardware (instruction atomique du processeur), ce qui est bien plus rapide qu'une section critique.
 
-\textbf{Comparaison avec critical :} L'op\'eration \texttt{atomic} est g\'en\'eralement 2 \`a 5 fois plus
-rapide que \texttt{critical} car elle \'evite le m\'ecanisme de verrou (mutex) et utilise directement les
+\textbf{Comparaison avec critical :} L'opération \texttt{atomic} est généralement 2 \`a 5 fois plus
+rapide que \texttt{critical} car elle évite le mécanisme de verrou (mutex) et utilise directement les
 instructions atomiques du processeur (ex. : \texttt{LOCK XADD} sur x86).
 
 \begin{table}[h!]
     \centering
-    \caption{Comparaison des m\'ethodes de synchronisation (tableau de $10^7$ \'el\'ements, 4 threads)}
+    \caption{Comparaison des méthodes de synchronisation (tableau de $10^7$ éléments, 4 threads)}
     \label{tab:C6_sync}
     \begin{tabular}{lrl}
         \toprule
-        \textbf{M\'ethode} & \textbf{Temps (s)} & \textbf{Remarque} \\
+        \textbf{Méthode} & \textbf{Temps (s)} & \textbf{Remarque} \\
         \midrule
-        Section critique  & 0.1832 & S\'erialisation forte \\
+        Section critique  & 0.1832 & Sérialisation forte \\
         Atomic            & 0.0621 & $3\times$ plus rapide \\
-        R\'eduction       & 0.0098 & Optimal \\
+        Réduction       & 0.0098 & Optimal \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-\subsubsection{(e) Clause de r\'eduction}
+\subsubsection{(e) Clause de réduction}
 
-\begin{lstlisting}[caption={partiC\_6e.c -- Clause de r\'eduction}, label={lst:C6e}]
+\begin{lstlisting}[caption={partiC\_6e.c -- Clause de réduction}, label={lst:C6e}]
 void carre(int *tableau, int n) {
     int total = 0;
     // Chaque thread a une copie locale de total initialisee a 0
@@ -742,22 +743,22 @@ void carre(int *tableau, int n) {
 }
 \end{lstlisting}
 
-\textbf{R\'esultat :} La somme est parfaitement correcte.
+\textbf{Résultat :} La somme est parfaitement correcte.
 
-\textbf{M\'ecanisme :} La clause \texttt{reduction(+:total)} cr\'ee une copie priv\'ee de \texttt{total}
-initialis\'ee \`a $0$ pour chaque thread. Chaque thread accumule sa somme partielle localement (pas de
-synchronisation entre it\'erations). \`A la fin de la r\'egion parall\`ele, OpenMP combine automatiquement
-toutes les copies priv\'ees en une seule valeur finale via l'op\'erateur \texttt{+}.
+\textbf{Mécanisme :} La clause \texttt{reduction(+:total)} crée une copie privée de \texttt{total}
+initialisée \`a $0$ pour chaque thread. Chaque thread accumule sa somme partielle localement (pas de
+synchronisation entre itérations). \`A la fin de la région parallèle, OpenMP combine automatiquement
+toutes les copies privées en une seule valeur finale via l'opérateur \texttt{+}.
 
-\textbf{Avantages par rapport aux m\'ethodes pr\'ec\'edentes :}
+\textbf{Avantages par rapport aux méthodes précédentes :}
 \begin{itemize}
     \item \textbf{Plus rapide} que \texttt{critical} et \texttt{atomic} (voir Tableau~\ref{tab:C6_sync}).
     \item \textbf{Pas de contention} : aucun verrou ou attente entre threads pendant la boucle.
-    \item \textbf{Simple et lisible} : le compilateur g\'en\`ere le code de r\'eduction optimal.
-    \item \textbf{Scalable} : l'efficacit\'e reste \'elev\'ee m\^eme avec beaucoup de threads.
+    \item \textbf{Simple et lisible} : le compilateur génère le code de réduction optimal.
+    \item \textbf{Scalable} : l'efficacité reste élevée m\^eme avec beaucoup de threads.
 \end{itemize}
 
-C'est la \textbf{m\'ethode recommand\'ee} pour les r\'eductions en OpenMP.
+C'est la \textbf{méthode recommandée} pour les réductions en OpenMP.
 
 \newpage
 
@@ -765,30 +766,30 @@ C'est la \textbf{m\'ethode recommand\'ee} pour les r\'eductions en OpenMP.
 \mysection{Conclusion}
 % ============================================================
 
-Ce TP nous a permis d'explorer les deux grands paradigmes du calcul parall\`ele en HPC.
+Ce TP nous a permis d'explorer les deux grands paradigmes du calcul parallèle en HPC.
 
 \paragraph{MPI (Parties A et B).}
-Le mod\`ele Master/Worker avec MPI est particuli\`erement adapt\'e aux architectures distribu\'ees.
-Il permet d'exploiter plusieurs noeuds de calcul ind\'ependants mais n\'ecessite une gestion explicite
-des communications. Le rapport calcul/communication est d\'eterminant : pour de petits probl\`emes,
-l'overhead MPI est dominant, mais pour de grands volumes de donn\'ees, le gain devient significatif.
+Le modèle Master/Worker avec MPI est particulièrement adapté aux architectures distribuées.
+Il permet d'exploiter plusieurs noeuds de calcul indépendants mais nécessite une gestion explicite
+des communications. Le rapport calcul/communication est déterminant : pour de petits problèmes,
+l'overhead MPI est dominant, mais pour de grands volumes de données, le gain devient significatif.
 
 \paragraph{OpenMP (Partie C).}
-OpenMP simplifie la parall\'elisation des boucles r\'eguli\`eres \`a m\'emoire partag\'ee. La gestion
-des variables partag\'ees/priv\'ees est cruciale pour \'eviter les \textit{race conditions}. Les
-m\'ecanismes de synchronisation (section critique, atomique, r\'eduction) offrent des compromis
-diff\'erents entre correction et performance. La clause \texttt{reduction} est la solution la plus
-\'el\'egante et performante pour les accumulations.
+OpenMP simplifie la parallélisation des boucles régulières \`a mémoire partagée. La gestion
+des variables partagées/privées est cruciale pour éviter les \textit{race conditions}. Les
+mécanismes de synchronisation (section critique, atomique, réduction) offrent des compromis
+différents entre correction et performance. La clause \texttt{reduction} est la solution la plus
+élégante et performante pour les accumulations.
 
-\paragraph{Parall\'elisme hybride (Partie B).}
+\paragraph{Parallélisme hybride (Partie B).}
 La combinaison MPI+OpenMP offre les meilleures performances sur les clusters modernes en exploitant
-simultan\'ement plusieurs niveaux de parall\'elisme. Elle est cependant plus complexe \`a mettre en
-oeuvre et \`a d\'eboquer.
+simultanément plusieurs niveaux de parallélisme. Elle est cependant plus complexe \`a mettre en
+oeuvre et \`a déboquer.
 
-\paragraph{Enseignements g\'en\'eraux.}
+\paragraph{Enseignements généraux.}
 \begin{itemize}
-    \item La loi d'Amdahl limite le speedup atteignable selon la fraction parall\'elisable du code.
-    \item Le grain de parall\'elisme doit \^etre calibr\'e : trop fin g\'en\`ere de l'overhead, trop gros
+    \item La loi d'Amdahl limite le speedup atteignable selon la fraction parallélisable du code.
+    \item Le grain de parallélisme doit \^etre calibré : trop fin génère de l'overhead, trop gros
           sous-exploite les ressources.
     \item Les outils de mesure (\texttt{MPI\_Wtime}, \texttt{omp\_get\_wtime}) sont indispensables pour
           le benchmarking.
