@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.7)  8 APR 2026 23:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.7)  8 APR 2026 23:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1034,8 +1034,7 @@ LaTeX Font Info:    Font shape `T1/Montserrat-LF/m/n' aliased to
 (Font)              `T1/Montserrat-LF/regular/n' on input line 50.
 LaTeX Font Info:    Font shape `T1/Montserrat-LF/regular/n' will be
 (Font)              scaled to size 12.0pt on input line 50.
-
-No file main.aux.
+ (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
@@ -1054,7 +1053,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
 LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 50.
 LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 50.
-(/usr/share/texlive/texmf-dist/tex/latex/ly1/ly1ptm.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
 LaTeX Font Info:    ... okay on input line 50.
@@ -1224,7 +1223,16 @@ Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
 Non-PDF special ignored!
 <special> ps:0.8 setlinewidth 0 setgray
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./media/logo/cea.png> <./media/logo/imsp.png>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./media/logo/cea.png> <./media/logo/imsp.png>] (./main.toc
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 31.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+)
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1244,7 +1252,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 <to be read again> 
                    \relax 
 l.117 \newpage
-               [1]
+               [1] (./main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
@@ -1257,34 +1265,6 @@ File: ./media/logo/imsp.png Graphic file (type png)
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 120.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
  [2]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 143.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
-/home/beryl/Documents/M2-IMSP/HPC/TP_calcul_Parallele_HPC/rapport/main.tex:146: Missing $ inserted.
-<inserted text> 
-                $
-l.146 ...b.com/saraodile1/TP_calcul_Parallele_HPC}
-                                                  .
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-/home/beryl/Documents/M2-IMSP/HPC/TP_calcul_Parallele_HPC/rapport/main.tex:146: Missing $ inserted.
-<inserted text> 
-                $
-l.146 ...b.com/saraodile1/TP_calcul_Parallele_HPC}
-                                                  .
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
 File: ./media/logo/cea.png Graphic file (type png)
 <use ./media/logo/cea.png>
 Package pdftex.def Info: ./media/logo/cea.png  used on input line 148.
@@ -1293,7 +1273,7 @@ File: ./media/logo/imsp.png Graphic file (type png)
 <use ./media/logo/imsp.png>
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 148.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
-[3]
+ [3]
 LaTeX Font Info:    Font shape `T1/Montserrat-LF/regular/n' will be
 (Font)              scaled to size 14.4pt on input line 154.
 LaTeX Font Info:    Font shape `T1/Montserrat-LF/bold/n' will be
@@ -1314,21 +1294,16 @@ File: ./media/logo/imsp.png Graphic file (type png)
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 208.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
  [4]
-
-LaTeX Warning: Reference `fig:partieA_ref' on page 5 undefined on input line 251.
-
-<../PartieA/Resultats_experimentauxA/1.png, id=91, 907.13907pt x 573.64313pt>
+<../PartieA/Resultats_experimentauxA/1.png, id=165, 907.13907pt x 573.64313pt>
 File: ../PartieA/Resultats_experimentauxA/1.png Graphic file (type png)
 <use ../PartieA/Resultats_experimentauxA/1.png>
 Package pdftex.def Info: ../PartieA/Resultats_experimentauxA/1.png  used on input line 255.
 (pdftex.def)             Requested size: 435.32422pt x 275.2843pt.
 
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:partieA_seq' on page 5 undefined on input line 260.
-
-<../PartieA/Resultats_experimentauxA/seq.jpeg, id=92, 962.59625pt x 474.77374pt>
+<../PartieA/Resultats_experimentauxA/seq.jpeg, id=167, 962.59625pt x 474.77374pt>
 File: ../PartieA/Resultats_experimentauxA/seq.jpeg Graphic file (type jpg)
 <use ../PartieA/Resultats_experimentauxA/seq.jpeg>
 Package pdftex.def Info: ../PartieA/Resultats_experimentauxA/seq.jpeg  used on input line 264.
@@ -1336,10 +1311,7 @@ Package pdftex.def Info: ../PartieA/Resultats_experimentauxA/seq.jpeg  used on i
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:partieA_n100' on page 5 undefined on input line 269.
-
-<../PartieA/Resultats_experimentauxA/taille_100.jpeg, id=93, 874.26625pt x 325.215pt>
+<../PartieA/Resultats_experimentauxA/taille_100.jpeg, id=169, 874.26625pt x 325.215pt>
 File: ../PartieA/Resultats_experimentauxA/taille_100.jpeg Graphic file (type jpg)
 <use ../PartieA/Resultats_experimentauxA/taille_100.jpeg>
 Package pdftex.def Info: ../PartieA/Resultats_experimentauxA/taille_100.jpeg  used on input line 273.
@@ -1347,16 +1319,7 @@ Package pdftex.def Info: ../PartieA/Resultats_experimentauxA/taille_100.jpeg  us
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:partieA_n100000' on page 5 undefined on input line 281.
-
-
-LaTeX Warning: Reference `fig:partieA_n1000000' on page 5 undefined on input line 281.
-
-
-LaTeX Warning: Reference `fig:partieA_n10000000' on page 5 undefined on input line 282.
-
-<../PartieA/Resultats_experimentauxA/taille_100000.jpeg, id=94, 939.51pt x 282.05376pt>
+<../PartieA/Resultats_experimentauxA/taille_100000.jpeg, id=173, 939.51pt x 282.05376pt>
 File: ../PartieA/Resultats_experimentauxA/taille_100000.jpeg Graphic file (type jpg)
 <use ../PartieA/Resultats_experimentauxA/taille_100000.jpeg>
 Package pdftex.def Info: ../PartieA/Resultats_experimentauxA/taille_100000.jpeg  used on input line 286.
@@ -1364,7 +1327,7 @@ Package pdftex.def Info: ../PartieA/Resultats_experimentauxA/taille_100000.jpeg 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../PartieA/Resultats_experimentauxA/taille_1000000.jpeg, id=95, 904.37875pt x 336.25626pt>
+<../PartieA/Resultats_experimentauxA/taille_1000000.jpeg, id=174, 904.37875pt x 336.25626pt>
 File: ../PartieA/Resultats_experimentauxA/taille_1000000.jpeg Graphic file (type jpg)
 <use ../PartieA/Resultats_experimentauxA/taille_1000000.jpeg>
 Package pdftex.def Info: ../PartieA/Resultats_experimentauxA/taille_1000000.jpeg  used on input line 293.
@@ -1372,7 +1335,7 @@ Package pdftex.def Info: ../PartieA/Resultats_experimentauxA/taille_1000000.jpeg
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../PartieA/Resultats_experimentauxA/taille_10000000.jpeg, id=96, 923.45pt x 321.2pt>
+<../PartieA/Resultats_experimentauxA/taille_10000000.jpeg, id=175, 923.45pt x 321.2pt>
 File: ../PartieA/Resultats_experimentauxA/taille_10000000.jpeg Graphic file (type jpg)
 <use ../PartieA/Resultats_experimentauxA/taille_10000000.jpeg>
 Package pdftex.def Info: ../PartieA/Resultats_experimentauxA/taille_10000000.jpeg  used on input line 300.
@@ -1419,10 +1382,7 @@ File: ./media/logo/imsp.png Graphic file (type png)
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 336.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
  [8 <../PartieA/Resultats_experimentauxA/taille_10000000.jpeg>]
-
-LaTeX Warning: Reference `fig:partieB_seq' on page 9 undefined on input line 383.
-
-<../PartieB/Resultats_experimentauxB/fibonacci_seq.jpeg, id=172, 700.6175pt x 107.40125pt>
+<../PartieB/Resultats_experimentauxB/fibonacci_seq.jpeg, id=247, 700.6175pt x 107.40125pt>
 File: ../PartieB/Resultats_experimentauxB/fibonacci_seq.jpeg Graphic file (type jpg)
 <use ../PartieB/Resultats_experimentauxB/fibonacci_seq.jpeg>
 Package pdftex.def Info: ../PartieB/Resultats_experimentauxB/fibonacci_seq.jpeg  used on input line 387.
@@ -1435,15 +1395,13 @@ File: ./media/logo/imsp.png Graphic file (type png)
 <use ./media/logo/imsp.png>
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 397.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
-[9 <../PartieB/Resultats_experimentauxB/fibonacci_seq.jpeg>]
-
-LaTeX Warning: Reference `fig:partieB_openmp' on page 10 undefined on input line 436.
-
-<../PartieB/Resultats_experimentauxB/fibonacci_openmp.jpeg, id=208, 701.62125pt x 214.8025pt>
+ [9 <../PartieB/Resultats_experimentauxB/fibonacci_seq.jpeg>]
+<../PartieB/Resultats_experimentauxB/fibonacci_openmp.jpeg, id=282, 701.62125pt x 214.8025pt>
 File: ../PartieB/Resultats_experimentauxB/fibonacci_openmp.jpeg Graphic file (type jpg)
 <use ../PartieB/Resultats_experimentauxB/fibonacci_openmp.jpeg>
 Package pdftex.def Info: ../PartieB/Resultats_experimentauxB/fibonacci_openmp.jpeg  used on input line 440.
 (pdftex.def)             Requested size: 435.32422pt x 133.27777pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1456,10 +1414,7 @@ File: ./media/logo/imsp.png Graphic file (type png)
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 457.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
 [10]
-
-LaTeX Warning: Reference `fig:partieB_mpi' on page 11 undefined on input line 479.
-
-<../PartieB/Resultats_experimentauxB/fibonacci_mpi.jpeg, id=256, 715.67375pt x 111.41624pt>
+<../PartieB/Resultats_experimentauxB/fibonacci_mpi.jpeg, id=329, 715.67375pt x 111.41624pt>
 File: ../PartieB/Resultats_experimentauxB/fibonacci_mpi.jpeg Graphic file (type jpg)
 <use ../PartieB/Resultats_experimentauxB/fibonacci_mpi.jpeg>
 Package pdftex.def Info: ../PartieB/Resultats_experimentauxB/fibonacci_mpi.jpeg  used on input line 483.
@@ -1472,15 +1427,13 @@ File: ./media/logo/imsp.png Graphic file (type png)
 <use ./media/logo/imsp.png>
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 494.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
-[11 <../PartieB/Resultats_experimentauxB/fibonacci_openmp.jpeg> <../PartieB/Resultats_experimentauxB/fibonacci_mpi.jpeg>]
-
-LaTeX Warning: Reference `fig:partieB_hybrid' on page 12 undefined on input line 530.
-
-<../PartieB/Resultats_experimentauxB/fibonnaci_hybrid.jpeg, id=288, 1019.81pt x 524.96124pt>
+ [11 <../PartieB/Resultats_experimentauxB/fibonacci_openmp.jpeg> <../PartieB/Resultats_experimentauxB/fibonacci_mpi.jpeg>]
+<../PartieB/Resultats_experimentauxB/fibonnaci_hybrid.jpeg, id=360, 1019.81pt x 524.96124pt>
 File: ../PartieB/Resultats_experimentauxB/fibonnaci_hybrid.jpeg Graphic file (type jpg)
 <use ../PartieB/Resultats_experimentauxB/fibonnaci_hybrid.jpeg>
 Package pdftex.def Info: ../PartieB/Resultats_experimentauxB/fibonnaci_hybrid.jpeg  used on input line 534.
 (pdftex.def)             Requested size: 435.32422pt x 224.09483pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1510,24 +1463,19 @@ File: ./media/logo/imsp.png Graphic file (type png)
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 597.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
  [13 <../PartieB/Resultats_experimentauxB/fibonnaci_hybrid.jpeg>]
-
-LaTeX Warning: Reference `fig:partieC_1a' on page 14 undefined on input line 629.
-
-<../PartieC/Resultats_experimentauxC/1a.png, id=348, 575.14874pt x 83.5622pt>
+<../PartieC/Resultats_experimentauxC/1a.png, id=417, 575.14874pt x 83.5622pt>
 File: ../PartieC/Resultats_experimentauxC/1a.png Graphic file (type png)
 <use ../PartieC/Resultats_experimentauxC/1a.png>
 Package pdftex.def Info: ../PartieC/Resultats_experimentauxC/1a.png  used on input line 633.
 (pdftex.def)             Requested size: 435.32422pt x 63.24908pt.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 638.
-
-LaTeX Warning: Reference `fig:partieC_1b' on page 14 undefined on input line 652.
-
-<../PartieC/Resultats_experimentauxC/1b.png, id=349, 663.22781pt x 167.12437pt>
+<../PartieC/Resultats_experimentauxC/1b.png, id=419, 663.22781pt x 167.12437pt>
 File: ../PartieC/Resultats_experimentauxC/1b.png Graphic file (type png)
 <use ../PartieC/Resultats_experimentauxC/1b.png>
 Package pdftex.def Info: ../PartieC/Resultats_experimentauxC/1b.png  used on input line 656.
 (pdftex.def)             Requested size: 435.32422pt x 109.69548pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1540,10 +1488,7 @@ File: ./media/logo/imsp.png Graphic file (type png)
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 665.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
 [14 <../PartieC/Resultats_experimentauxC/1a.png>]
-
-LaTeX Warning: Reference `fig:partieC_1c' on page 15 undefined on input line 678.
-
-<../PartieC/Resultats_experimentauxC/1c.png, id=386, 443.40656pt x 147.55125pt>
+<../PartieC/Resultats_experimentauxC/1c.png, id=453, 443.40656pt x 147.55125pt>
 File: ../PartieC/Resultats_experimentauxC/1c.png Graphic file (type png)
 <use ../PartieC/Resultats_experimentauxC/1c.png>
 Package pdftex.def Info: ../PartieC/Resultats_experimentauxC/1c.png  used on input line 682.
@@ -1556,11 +1501,8 @@ File: ./media/logo/imsp.png Graphic file (type png)
 <use ./media/logo/imsp.png>
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 698.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
-[15 <../PartieC/Resultats_experimentauxC/1b.png> <../PartieC/Resultats_experimentauxC/1c.png>]
-
-LaTeX Warning: Reference `fig:partieC_1e' on page 16 undefined on input line 725.
-
-<../PartieC/Resultats_experimentauxC/1e.png, id=414, 541.27219pt x 264.99pt>
+ [15 <../PartieC/Resultats_experimentauxC/1b.png> <../PartieC/Resultats_experimentauxC/1c.png>]
+<../PartieC/Resultats_experimentauxC/1e.png, id=480, 541.27219pt x 264.99pt>
 File: ../PartieC/Resultats_experimentauxC/1e.png Graphic file (type png)
 <use ../PartieC/Resultats_experimentauxC/1e.png>
 Package pdftex.def Info: ../PartieC/Resultats_experimentauxC/1e.png  used on input line 729.
@@ -1573,11 +1515,8 @@ File: ./media/logo/imsp.png Graphic file (type png)
 <use ./media/logo/imsp.png>
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 746.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
-[16 <../PartieC/Resultats_experimentauxC/1e.png>]
-
-LaTeX Warning: Reference `fig:partieC_1f' on page 17 undefined on input line 750.
-
-<../PartieC/Resultats_experimentauxC/1f.png, id=426, 1010.27437pt x 615.0478pt>
+ [16 <../PartieC/Resultats_experimentauxC/1e.png>]
+<../PartieC/Resultats_experimentauxC/1f.png, id=490, 1010.27437pt x 615.0478pt>
 File: ../PartieC/Resultats_experimentauxC/1f.png Graphic file (type png)
 <use ../PartieC/Resultats_experimentauxC/1f.png>
 Package pdftex.def Info: ../PartieC/Resultats_experimentauxC/1f.png  used on input line 754.
@@ -1590,14 +1529,10 @@ File: ./media/logo/imsp.png Graphic file (type png)
 <use ./media/logo/imsp.png>
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 759.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
-[17 <../PartieC/Resultats_experimentauxC/1f.png>]
+ [17 <../PartieC/Resultats_experimentauxC/1f.png>]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 761.
-
-
-LaTeX Warning: Reference `fig:partieC_6a' on page 18 undefined on input line 782.
-
-<../PartieC/Resultats_experimentauxC/6a.jpeg, id=435, 744.7825pt x 495.8525pt>
+<../PartieC/Resultats_experimentauxC/6a.jpeg, id=500, 744.7825pt x 495.8525pt>
 File: ../PartieC/Resultats_experimentauxC/6a.jpeg Graphic file (type jpg)
 <use ../PartieC/Resultats_experimentauxC/6a.jpeg>
 Package pdftex.def Info: ../PartieC/Resultats_experimentauxC/6a.jpeg  used on input line 786.
@@ -1610,19 +1545,13 @@ File: ./media/logo/imsp.png Graphic file (type png)
 <use ./media/logo/imsp.png>
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 800.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
-[18 <../PartieC/Resultats_experimentauxC/6a.jpeg>]
-
-LaTeX Warning: Reference `fig:partieC_6b' on page 19 undefined on input line 810.
-
-<../PartieC/Resultats_experimentauxC/6b.jpeg, id=463, 692.5875pt x 262.9825pt>
+ [18 <../PartieC/Resultats_experimentauxC/6a.jpeg>]
+<../PartieC/Resultats_experimentauxC/6b.jpeg, id=526, 692.5875pt x 262.9825pt>
 File: ../PartieC/Resultats_experimentauxC/6b.jpeg Graphic file (type jpg)
 <use ../PartieC/Resultats_experimentauxC/6b.jpeg>
 Package pdftex.def Info: ../PartieC/Resultats_experimentauxC/6b.jpeg  used on input line 814.
 (pdftex.def)             Requested size: 435.32422pt x 165.29863pt.
-
-LaTeX Warning: Reference `fig:partieC_6c' on page 19 undefined on input line 844.
-
-<../PartieC/Resultats_experimentauxC/6c.jpeg, id=464, 877.2775pt x 232.87pt>
+<../PartieC/Resultats_experimentauxC/6c.jpeg, id=528, 877.2775pt x 232.87pt>
 File: ../PartieC/Resultats_experimentauxC/6c.jpeg Graphic file (type jpg)
 <use ../PartieC/Resultats_experimentauxC/6c.jpeg>
 Package pdftex.def Info: ../PartieC/Resultats_experimentauxC/6c.jpeg  used on input line 848.
@@ -1635,15 +1564,13 @@ File: ./media/logo/imsp.png Graphic file (type png)
 <use ./media/logo/imsp.png>
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 851.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
-[19 <../PartieC/Resultats_experimentauxC/6b.jpeg>]
-
-LaTeX Warning: Reference `fig:partieC_6d' on page 20 undefined on input line 876.
-
-<../PartieC/Resultats_experimentauxC/6d.jpeg, id=493, 893.3375pt x 239.89626pt>
+ [19 <../PartieC/Resultats_experimentauxC/6b.jpeg>]
+<../PartieC/Resultats_experimentauxC/6d.jpeg, id=556, 893.3375pt x 239.89626pt>
 File: ../PartieC/Resultats_experimentauxC/6d.jpeg Graphic file (type jpg)
 <use ../PartieC/Resultats_experimentauxC/6d.jpeg>
 Package pdftex.def Info: ../PartieC/Resultats_experimentauxC/6d.jpeg  used on input line 880.
 (pdftex.def)             Requested size: 435.32422pt x 116.90227pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1656,17 +1583,12 @@ File: ./media/logo/imsp.png Graphic file (type png)
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 902.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
 [20 <../PartieC/Resultats_experimentauxC/6c.jpeg> <../PartieC/Resultats_experimentauxC/6d.jpeg>]
-
-LaTeX Warning: Reference `tab:C6_sync' on page 21 undefined on input line 925.
-
-
-LaTeX Warning: Reference `fig:partieC_6e' on page 21 undefined on input line 933.
-
-<../PartieC/Resultats_experimentauxC/6e.jpeg, id=515, 735.74875pt x 244.915pt>
+<../PartieC/Resultats_experimentauxC/6e.jpeg, id=579, 735.74875pt x 244.915pt>
 File: ../PartieC/Resultats_experimentauxC/6e.jpeg Graphic file (type jpg)
 <use ../PartieC/Resultats_experimentauxC/6e.jpeg>
 Package pdftex.def Info: ../PartieC/Resultats_experimentauxC/6e.jpeg  used on input line 937.
 (pdftex.def)             Requested size: 435.32422pt x 144.9134pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1691,31 +1613,24 @@ File: ./media/logo/imsp.png Graphic file (type png)
 <use ./media/logo/imsp.png>
 Package pdftex.def Info: ./media/logo/imsp.png  used on input line 978.
 (pdftex.def)             Requested size: 24.18631pt x 23.4027pt.
-[22 <../PartieC/Resultats_experimentauxC/6e.jpeg>] (./main.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- )
+[22 <../PartieC/Resultats_experimentauxC/6e.jpeg>] (./main.aux) )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 50 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 46024 strings out of 478287
- 1011326 string characters out of 5849290
- 1927289 words of memory out of 5000000
+ 46036 strings out of 478287
+ 1011426 string characters out of 5849290
+ 1928289 words of memory out of 5000000
  62804 multiletter control sequences out of 15000+600000
- 731067 words of font info for 227 fonts, out of 8000000 for 9000
+ 731215 words of font info for 230 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,16n,131p,1067b,3982s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 114i,16n,131p,1067b,3979s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/montserrat/zmo_umrhwx.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/montserrat/zmo_fmi5lv.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/montserrat/Montserrat-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/montserrat/Montserrat-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/montserrat/Montserrat-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfit1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb>
-Output written on main.pdf (23 pages, 1782637 bytes).
+Output written on main.pdf (23 pages, 1785093 bytes).
 PDF statistics:
- 791 PDF objects out of 1000 (max. 8388607)
- 700 compressed objects within 7 object streams
+ 853 PDF objects out of 1000 (max. 8388607)
+ 761 compressed objects within 8 object streams
  372 named destinations out of 1000 (max. 500000)
  57731 words of extra memory for PDF output out of 61914 (max. 10000000)
 
