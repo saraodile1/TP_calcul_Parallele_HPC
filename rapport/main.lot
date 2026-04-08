@@ -1,6 +1,6 @@
 \babel@toc {french}{}\relax 
-\contentsline {table}{\numberline {1}{\ignorespaces Temps d'exécution du modèle Master/Worker ($p = 5$ processus)\relax }}{7}{table.caption.9}%
-\contentsline {table}{\numberline {2}{\ignorespaces Comparaison des temps d'exécution pour $F(40)$\relax }}{12}{table.caption.19}%
-\contentsline {table}{\numberline {3}{\ignorespaces Efficacité des différentes versions parallèles\relax }}{13}{table.caption.20}%
-\contentsline {table}{\numberline {4}{\ignorespaces Temps d'exécution en fonction du nombre de threads (tableau de $10^7$ éléments)\relax }}{16}{table.caption.29}%
-\contentsline {table}{\numberline {5}{\ignorespaces Comparaison des méthodes de synchronisation (tableau de $10^7$ éléments, 4 threads)\relax }}{19}{table.caption.32}%
+\contentsline {table}{\numberline {1}{\ignorespaces Temps d'exécution du modèle Master/Worker ($p = 5$ processus)\relax }}{6}{table.caption.11}%
+\contentsline {table}{\numberline {2}{\ignorespaces Comparaison des temps d'exécution pour $F(40)$\relax }}{13}{table.caption.21}%
+\contentsline {table}{\numberline {3}{\ignorespaces Efficacité des différentes versions parallèles\relax }}{13}{table.caption.22}%
+\contentsline {table}{\numberline {4}{\ignorespaces Temps d'exécution en fonction du nombre de threads (tableau de $10^7$ éléments)\relax }}{16}{table.caption.31}%
+\contentsline {table}{\numberline {5}{\ignorespaces Comparaison des méthodes de synchronisation (tableau de $10^7$ éléments, 4 threads)\relax }}{21}{table.caption.38}%
