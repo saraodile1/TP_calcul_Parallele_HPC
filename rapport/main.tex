@@ -245,7 +245,42 @@ mpirun -np 5 ./partiA_MPI <N>
 On utilise 5 processus au total : 1 master + 4 workers.
 Pour $N = 100$, la somme exacte est $\frac{100 \times 101}{2} = 5050$.
 
+Une exécution de référence est présentée en Figure~\ref{fig:partieA_ref}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieA/Resultats_experimentauxA/1.png}
+    \caption{Exécution de référence du programme MPI (Partie A).}
+    \label{fig:partieA_ref}
+\end{figure}
+
+Le cas $N = 100$ est illustré en Figure~\ref{fig:partieA_n100}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieA/Resultats_experimentauxA/taille_100.png}
+    \caption{Résultat expérimental pour $N = 100$.}
+    \label{fig:partieA_n100}
+\end{figure}
+
 \subsubsection{Mesure des performances}
+
+Les mesures complémentaires pour $N = 1000$ et $N = 10000$ sont montrées respectivement
+en Figures~\ref{fig:partieA_n1000} et~\ref{fig:partieA_n10000}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieA/Resultats_experimentauxA/taille_1000.png}
+    \caption{Résultat expérimental pour $N = 1000$.}
+    \label{fig:partieA_n1000}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieA/Resultats_experimentauxA/taille_10000.png}
+    \caption{Résultat expérimental pour $N = 10000$.}
+    \label{fig:partieA_n10000}
+\end{figure}
 
 \begin{table}[h!]
     \centering
@@ -326,6 +361,15 @@ int main(int argc, char* argv[]) {
 La complexité de cet algorithme est $O(\phi^n)$ o\`u $\phi \approx 1{,}618$ est le nombre d'or,
 ce qui le rend très couteux pour les grandes valeurs de $n$.
 
+Le résultat expérimental correspondant est montré en Figure~\ref{fig:partieB_seq}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieB/Resultats_experimentauxB/fibonacci_seq.png}
+    \caption{Exécution de la version séquentielle de Fibonacci.}
+    \label{fig:partieB_seq}
+\end{figure}
+
 \subsection{Version OpenMP}
 
 La version OpenMP exploite les directives \texttt{\#pragma omp task} pour créer des t\^aches parallèles
@@ -370,6 +414,15 @@ int main(int argc, char* argv[]) {
 Le \textit{cutoff} \`a $n < 20$ est essentiel : en dessous de ce seuil, le co\^ut de création et
 de synchronisation des t\^aches OpenMP dépasse le gain de parallélisation.
 
+Un exemple d'exécution OpenMP est donné en Figure~\ref{fig:partieB_openmp}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieB/Resultats_experimentauxB/fibonacci_openmp.png}
+    \caption{Exécution de la version OpenMP de Fibonacci.}
+    \label{fig:partieB_openmp}
+\end{figure}
+
 \subsection{Version MPI}
 
 La version MPI distribue le calcul de manière approximative : chaque processus calcule
@@ -403,6 +456,15 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 \end{lstlisting}
+
+Le comportement de la version MPI est illustré en Figure~\ref{fig:partieB_mpi}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieB/Resultats_experimentauxB/fibonacci_mpi.png}
+    \caption{Exécution de la version MPI de Fibonacci.}
+    \label{fig:partieB_mpi}
+\end{figure}
 
 \subsection{Version hybride MPI + OpenMP}
 
@@ -445,6 +507,15 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 \end{lstlisting}
+
+Une exécution de la version hybride est présentée en Figure~\ref{fig:partieB_hybrid}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieB/Resultats_experimentauxB/fibonnaci_hybrid.png}
+    \caption{Exécution de la version hybride MPI+OpenMP de Fibonacci.}
+    \label{fig:partieB_hybrid}
+\end{figure}
 
 \subsection{étude des performances}
 
@@ -536,6 +607,15 @@ int main(int argc, char *argv[]) {
 }
 \end{lstlisting}
 
+Le résultat observé pour la question 1(a) est présenté en Figure~\ref{fig:partieC_1a}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieC/Resultats_experimentauxC/1a.png}
+    \caption{Résultat de la question 1(a).}
+    \label{fig:partieC_1a}
+\end{figure}
+
 \subsubsection{(b) Méthode \texttt{carre()}}
 
 La fonction \texttt{carre()} parcourt le tableau et élève chaque élément au carré en place :
@@ -549,6 +629,15 @@ void carre(int *tableau, int n) {
 
 C'est une boucle parfaitement parallélisable (\textit{embarrassingly parallel}) car il n'y a aucune
 dépendance entre les itérations.
+
+Le comportement associé à la question 1(b) est illustré en Figure~\ref{fig:partieC_1b}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieC/Resultats_experimentauxC/1b.png}
+    \caption{Résultat de la question 1(b).}
+    \label{fig:partieC_1b}
+\end{figure}
 
 \subsubsection{(c) Parallélisation avec OpenMP}
 
@@ -566,6 +655,15 @@ void carre(int *tableau, int n) {
 
 Cette directive demande \`a OpenMP de créer une équipe de threads et de répartir les itérations
 de la boucle entre eux. OpenMP gère automatiquement la distribution des itérations.
+
+La capture d'exécution correspondante est donnée en Figure~\ref{fig:partieC_1c}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieC/Resultats_experimentauxC/1c.png}
+    \caption{Résultat de la question 1(c).}
+    \label{fig:partieC_1c}
+\end{figure}
 
 \subsubsection{(d) Nombre de threads créés}
 
@@ -606,6 +704,15 @@ threads \`a 1, 5 puis 10 :
 observe un bon speedup. Avec 10 threads sur une machine \`a 4 coeurs physiques, l'hyperthreading permet un
 gain supplémentaire mais limité par la contention mémoire.
 
+Les sorties de la question 1(e) sont visibles en Figure~\ref{fig:partieC_1e}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieC/Resultats_experimentauxC/1e.png}
+    \caption{Résultat de la question 1(e).}
+    \label{fig:partieC_1e}
+\end{figure}
+
 \subsubsection{(f) Variable \texttt{OMP\_NUM\_THREADS}}
 
 La variable d'environnement \texttt{OMP\_NUM\_THREADS} permet de contr\^oler le nombre de threads
@@ -621,6 +728,15 @@ Ceci est très utile pour les scripts de benchmarking et les environnements HPC.
 
 Le programme \texttt{partiC\_f.c} vérifie si \texttt{OMP\_NUM\_THREADS} est défini via
 \texttt{getenv("OMP\_NUM\_THREADS")} et informe l'utilisateur de l'origine du paramétrage des threads.
+
+Le test basé sur \texttt{OMP\_NUM\_THREADS} (question 1(f)) est montré en Figure~\ref{fig:partieC_1f}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../PartieC/Resultats_experimentauxC/1f.png}
+    \caption{Résultat de la question 1(f).}
+    \label{fig:partieC_1f}
+\end{figure}
 
 \newpage
 
