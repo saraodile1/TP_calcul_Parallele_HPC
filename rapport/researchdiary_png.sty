@@ -1,0 +1,116 @@
+\ProvidesPackage{researchdiary_png}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{montserrat}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{extract}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{eucal}
+\usepackage[hmargin=2cm,vmargin=2.5cm]{geometry}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{epsfig}
+\usepackage{lipsum}
+\usepackage{framed}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pdflscape}
+\usepackage[urlcolor=blue]{hyperref} 
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage[french]{babel}
+\usepackage{sectsty}
+\usepackage{pgfgantt}
+\usepackage{hyphenat}
+\usepackage{microtype}
+\usepackage{pdfpages}
+\usepackage{enumitem}
+
+
+\newcommand{\workingDate}{\textsc{\selectlanguage{french}\today}}
+\newcommand{\userName}{Béryl}
+\newcommand{\institution}{IMSP}
+\newcommand{\filiere}{TIC}
+\newcommand{\imsplink}{https://www.imsp-benin.com/}
+\newcommand{\logocea}{./media/logo/cea.png}
+\newcommand{\logoimsp}{./media/logo/imsp.png}
+\newcommand{\imsplogo}{./media/logo/imsp_00.png}
+
+\definecolor{basecolor}{HTML}{406BAA}
+\definecolor{darkblue}{RGB}{47,68,117}
+\definecolor{lightgray}{gray}{0.95}
+\definecolor{autumnember}{RGB}{173,75,0}
+
+\allsectionsfont{\color{basecolor}}
+
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\DeclareLanguageMapping{french}{french-apa}
+\addbibresource{references.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Sobre hyperlinks:
+%% \url{http://www.wikibooks.org}
+%% \href{http://www.wikibooks.org}{wikibooks home}
+%% \href{mailto:email@site.com}{email@site.com}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\setlength\parindent{1cm}
+% \setlength\parskip{0.1in}
+\setlength\headheight{29pt}
+
+%%%%%%%%%%% HEADER / FOOTER %%%%%%%%%%%
+\lhead{\href{\imsplink}{\includegraphics[width=0.05\textwidth]{\logocea}}}
+\chead{\textsc{RESEARCH PROPOSAL}}
+\rhead{\href{\imsplink}{\includegraphics[width=0.05\textwidth]{\logoimsp}}}
+\rfoot{\textsc{\thepage}}
+\cfoot{\textit{Béryl Hougbenou HOUESSOU}}
+\lfoot{\textsc{\filiere}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%% Commandes %%%%%%%%%%%%%%
+\newcommand{\univlogo}{%
+  \noindent % University Logo
+  \begin{wrapfigure}{r}{0.15\textwidth}
+    \vspace{-80pt}
+    \begin{center}
+      \href{https://www.imsp-benin.com/}{\includegraphics[width=0.12\textwidth]{./logo/imsp.png}}
+    \end{center}
+    \vspace{-200pt}
+  \end{wrapfigure}
+}
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\ \par}
+\newcommand{\mysubparagraph}[1]{\subparagraph{#1}\mbox{}\\ \par}
+
+%%%%%%%%% Environnements %%%%%%%%%%%%
+\newenvironment{bullets}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+\newenvironment{numlist}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+\newenvironment{code}{
+\begin{quote}\begin{framed}
+}{\end{framed}\end{quote}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
